@@ -1,5 +1,7 @@
 # Panificadora Santo Antonio
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5777418b047c49e7a231e887274a7105)](https://app.codacy.com/gh/Panificadora-Santo-Antonio/panificadora_santo_antonio?utm_source=github.com&utm_medium=referral&utm_content=Panificadora-Santo-Antonio/panificadora_santo_antonio&utm_campaign=Badge_Grade_Settings)
+
 ## Desenvolvido por
 
 ![Allysson G. S. S.](https://github.com/Allysson042) |  ![Hermyson C. M. O.](https://github.com/Hermyson) |  ![Laisy C. F. S.](https://github.com/laisy)

@@ -19,13 +19,6 @@ Nosso cliente é o proprietário de uma panificadora (Panificadora Santo Antôni
 
 ### Características do projeto
 
-
-Produto: nome, descrição, Preço, validade
-Estoque: quantidadeProduto, ValorTotalEstoque, id_Produto
-ProdutoVenda: id_Produto, quantidade, preçoTotal
-Venda: listaProdutos, ValorTotal, data
-
-
 - Conta de Usuario com autenticação de Login e Senha
 - Usuario com cargo: Administrador e Funcionário
 - Usuario tipo Adm tem acesso a todo sistema

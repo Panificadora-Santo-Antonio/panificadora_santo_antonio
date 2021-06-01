@@ -30,3 +30,4 @@ Nosso cliente é o proprietário de uma panificadora (Panificadora Santo Antôni
 - Controle de vendas
 
 ## URL heroku
+https://panificadora-santo-antonio.herokuapp.com/

@@ -21,6 +21,7 @@ class EstoquesController < ApplicationController
 
   # POST /estoques or /estoques.json
   def create
+
     @estoque = Estoque.new(estoque_params)
 
     respond_to do |format|

@@ -1,4 +1,5 @@
 class EstoquesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_estoque, only: %i[ show edit update destroy ]
 
   # GET /estoques or /estoques.json

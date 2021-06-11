@@ -33,7 +33,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Use sqlite3 as the database for Active Record
- gem 'sqlite3', '~> 1.4'
+  gem 'sqlite3', '~> 1.4' 
+  gem 'bcrypt', '~> 3.1.7'
 end
 
 group :development do
@@ -49,8 +50,12 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
+  gem 'database_cleaner'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+  gem 'rspec'
+  gem 'cucumber','4.1.0'
+  gem 'cucumber-rails', require: false
 end
 
 group :production do

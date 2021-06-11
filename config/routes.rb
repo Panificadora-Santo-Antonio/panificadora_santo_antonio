@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-  resources :produtos
   devise_for :users
+  resources :produtos
   root 'home#index'
 end

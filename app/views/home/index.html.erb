@@ -1,8 +1,19 @@
-<html>
-<body>
-<h1><%= @message %></h1>
+<h1> PANIFICADORA SANTO ANTONIO </h1>
+<% if current_user %>
+  Welcome <%= current_user.name %>
+  </br>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign in", new_user_registration_path %> or 
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
+<p id="notice"><%= notice %></p>
 
-<%= link_to 'New Produto', new_produto_path %>
+<% if current_user %>
+  </br>
+  <h5> PRODUCT </h5>
+  <%= link_to 'New Product', new_produto_path %>
 
-</body>
-</html>
+<% else %>
+ You must be logged in to access
+<% end %>

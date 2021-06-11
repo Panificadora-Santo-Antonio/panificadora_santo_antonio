@@ -8,5 +8,5 @@ Rails.application.routes.draw do
             :registration => 'register', 
             :sign_up => 'cmon_let_me_in' }
   resources :produtos
-  #root 'home#index'
+  root 'home#index'
 end

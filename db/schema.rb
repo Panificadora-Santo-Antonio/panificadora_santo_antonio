@@ -10,8 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_11_010626) do
+ActiveRecord::Schema.define(version: 2021_06_09_130826) do
 
+  create_table "estoques", force: :cascade do |t|
+    t.integer "quantidadeProduto"
+    t.decimal "valorTotalEstoque"
+    t.integer "produto_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["produto_id"], name: "index_estoques_on_produto_id"
+  end
+  
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.text "descrição"
@@ -35,4 +44,5 @@ ActiveRecord::Schema.define(version: 2021_06_11_010626) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "estoques", "produtos"
 end

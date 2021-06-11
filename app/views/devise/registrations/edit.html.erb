@@ -36,10 +36,12 @@
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
-    <%= f.label :role %><br />
-    <%= f.select(:role, [['Seller', 1], ['Admin', 2]]) %>
-  </div>
+  <% if current_user.role == 'Admin' %>
+    <div class="field">
+      <%= f.label :role %><br />
+      <%= f.select(:role, [['Seller', 'Seller'], ['Admin', 'Admin']]) %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Update" %>

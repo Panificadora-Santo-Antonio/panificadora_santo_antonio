@@ -14,6 +14,7 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
+    @produto.build_estoque
   end
 
   # GET /produtos/1/edit
@@ -65,6 +66,6 @@ class ProdutosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def produto_params
-      params.require(:produto).permit(:nome, :descrição, :preco, :validade)
+      params.require(:produto).permit(:nome, :descrição, :preco, :validade,estoque_attributes:[:quantidadeProduto, :valorTotalEstoque, :produto_id])
     end
 end

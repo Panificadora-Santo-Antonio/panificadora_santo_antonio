@@ -12,24 +12,33 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nome %>
+    <%= form.label :Product_Name %>
     <%= form.text_field :nome %>
   </div>
 
   <div class="field">
-    <%= form.label :descrição %>
+    <%= form.label :Description %>
     <%= form.text_area :descrição %>
   </div>
 
   <div class="field">
-    <%= form.label :preco %>
+    <%= form.label :Price %>
     <%= form.text_field :preco %>
   </div>
 
   <div class="field">
-    <%= form.label :validade %>
+    <%= form.label :validity %>
     <%= form.date_select :validade %>
   </div>
+  <h2> Estoque </h2>
+  <%= form.fields_for :estoque do |estoque| %>
+    <div class="field">
+      <%= estoque.label :product_quantity %>
+      <%= estoque.number_field :quantidadeProduto %>
+    </div>
+
+
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

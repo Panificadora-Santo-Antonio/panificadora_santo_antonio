@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_09_130826) do
+ActiveRecord::Schema.define(version: 2021_06_11_010626) do
 
   create_table "estoques", force: :cascade do |t|
     t.integer "quantidadeProduto"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2021_06_09_130826) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["produto_id"], name: "index_estoques_on_produto_id"
   end
-  
+
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
     t.text "descrição"

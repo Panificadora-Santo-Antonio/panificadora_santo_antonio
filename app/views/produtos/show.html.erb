@@ -20,5 +20,15 @@
   <%= @produto.validade %>
 </p>
 
+<p>
+  <strong>Quantidade Produtos:</strong>
+  <%= @produto.estoque.quantidadeProduto %>
+</p>
+
+<p>
+  <strong>Valor Total de Estoque:</strong>
+  <%= @produto.estoque.valorTotalEstoque %>
+</p>
+
 <%= link_to 'Edit', edit_produto_path(@produto) %> |
 <%= link_to 'Back', produtos_path %>

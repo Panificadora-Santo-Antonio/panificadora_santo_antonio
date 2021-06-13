@@ -30,6 +30,18 @@
     <%= form.label :validade %>
     <%= form.date_select :validade %>
   </div>
+  <h2> Estoque </h2>
+  <%= form.fields_for :estoque do |estoque| %>
+    <div class="field">
+      <%= estoque.label :product_quantity %>
+      <%= estoque.number_field :quantidadeProduto %>
+    </div>
+
+    <div class="field">
+      <%= estoque.label :total_stock_value %>
+      <%= estoque.text_field :valorTotalEstoque %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

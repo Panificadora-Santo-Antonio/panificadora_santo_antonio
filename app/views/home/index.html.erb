@@ -4,21 +4,39 @@
   </br>
   <%= link_to "Logout", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to "Sign in", new_user_registration_path %> or 
   <%= link_to "Login", new_user_session_path %>
 <% end %>
 <p id="notice"><%= notice %></p>
 
 <% if current_user %>
-  </br>
-  <h5> PRODUCT </h5>
-  <%= link_to 'New Product', new_produto_path %>
-  </br>
-  <h5> USER </h5>
-  <%= link_to 'Edit User', edit_user_registration_path %>
-  <%= button_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
-  </br>
+ <% if current_user.role == "Admin" %>
+    </br>
+    <h5> PRODUCT </h5>
+    <%= link_to 'New Product', new_produto_path %>
+    </br>
+    <h5> USER </h5>
+    <%= link_to "New User", new_user_registration_path %> 
+    </br>
+    <%= link_to 'Show User', user_path(current_user) %>
+    </br>
+    <%= link_to 'Users List', users_path %>
+    </br>
+    <%= link_to 'Edit User', edit_user_registration_path %>
+    </br>
+    <%= button_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    </br>
 
+  <% else %>
+    <h5> PRODUCT </h5>
+
+    </br>
+    <h5> USER </h5>
+    <%= link_to 'Show User', user_path(current_user) %>
+    </br>
+    <%= link_to 'Edit User', edit_user_registration_path %>
+    </br>
+
+  <% end %>
 <% else %>
  You must be logged in to access
 <% end %>

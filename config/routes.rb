@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  root 'home#index'
+  devise_for :users,
+    controllers: {:registrations => "registrations"}
   resources :produtos
   resources :estoques
-  root 'home#index'
+  resources :users, :only => %i[show index]
+  as :user do 
+    get "/register", to: "registrations#new", as: "register"
+  end
 end

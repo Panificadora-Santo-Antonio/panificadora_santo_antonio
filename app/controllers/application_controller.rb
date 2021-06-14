@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     #devise_parameter_sanitizer.for(:sign_up) << :role
     end 
 
+  def check_role
+    if current_user.role == "Seller"
+      redirect_to root_path
+    end
+  end
+
 end

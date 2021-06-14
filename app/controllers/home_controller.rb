@@ -5,17 +5,26 @@ class HomeController < ApplicationController
     end
 
   def check_admin
-    if carry_admin.nil?
+    @admin = query_admin
+    if @admin.nil?
       create_admin
+    else
+      if @admin.role != "Admin"
+        update_admin(@admin)
+      end
     end
   end
 
-  def carry_admin
-    User.find_by(email: "admin@admin.com")
+  def query_admin
+    @admin = User.find_by(email: "admin@admin.com")
   end
 
   def create_admin
     admin = User.new(email: "admin@admin.com", password: "123456", name: "admin", role: "Admin")
     admin.save()
+  end
+
+  def update_admin(admin)
+    admin.update(role: "Admin")
   end
 end

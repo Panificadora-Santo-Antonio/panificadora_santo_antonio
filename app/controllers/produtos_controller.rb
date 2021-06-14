@@ -1,6 +1,7 @@
 class ProdutosController < ApplicationController
   before_action :authenticate_user!
   before_action :set_produto, only: %i[ show edit update destroy ]
+  before_action :check_role, unless: %i[ show index ]
 
   # GET /produtos or /produtos.json
   def index

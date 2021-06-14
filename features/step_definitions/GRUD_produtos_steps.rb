@@ -23,7 +23,7 @@ Then ('eu vejo uma mensagem que nao posso criar um produto com nome vazio') do
 end
 
 
-When ^(?:|eu )seleciono validade como "([^ ]*) ([^ ]*) ([^ ]*)"$ do |year, month, day|
+When ('eu seleciono validade como {string} {string} {string}') do |year, month, day|
     select(year,   :from => 'produto_validade_1i')
     select(month,  :from => 'produto_validade_2i')
     select(day,    :from => 'produto_validade_3i')

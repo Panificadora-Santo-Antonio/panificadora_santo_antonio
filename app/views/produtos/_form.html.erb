@@ -13,34 +13,38 @@
 
   <div class="field">
     <%= form.label :Product_Name %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, id: "nome" %>
   </div>
 
   <div class="field">
     <%= form.label :Description %>
-    <%= form.text_area :descrição %>
+    <%= form.text_area :descrição, id:"descricao" %>
   </div>
 
   <div class="field">
     <%= form.label :Price %>
-    <%= form.text_field :preco %>
+    <%= form.text_field :preco, id: "preco" %>
   </div>
 
   <div class="field">
     <%= form.label :validity %>
-    <%= form.date_select :validade %>
+    <%= form.date_select :validade, id:"validade" %>
   </div>
   <h2> Estoque </h2>
   <%= form.fields_for :estoque do |estoque| %>
     <div class="field">
       <%= estoque.label :product_quantity %>
-      <%= estoque.number_field :quantidadeProduto %>
+      <%= estoque.number_field :quantidadeProduto, id:"quantiProduto" %>
+    </div>
+    <div class="field">
+      <%= estoque.label :valorTotalEstoque %>
+      <%= estoque.number_field :valorTotalEstoque, id:"valorTotalEstoque" %>
     </div>
 
 
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit id:"submit" %>
   </div>
 <% end %>

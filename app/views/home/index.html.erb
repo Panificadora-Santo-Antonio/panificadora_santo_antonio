@@ -14,6 +14,8 @@
     <h5> PRODUCT </h5>
     <%= link_to 'New Product', new_produto_path %>
     </br>
+    <%= link_to 'Product List', produtos_path %>
+    </br>
     <h5> USER </h5>
     <%= link_to "New User", new_user_registration_path %> 
     </br>
@@ -28,7 +30,9 @@
 
   <% else %>
     <h5> PRODUCT </h5>
-
+    <%= link_to 'New Product', new_produto_path %>
+    </br>
+    <%= link_to 'Product List', produtos_path %>
     </br>
     <h5> USER </h5>
     <%= link_to 'Show User', user_path(current_user) %>

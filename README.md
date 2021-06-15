@@ -34,4 +34,4 @@ https://panificadora-santo-antonio.herokuapp.com/
 
 ## Usuario Administrador Padrão
 email: admin@admin.com
-senha: 123456
+senha: 123456 

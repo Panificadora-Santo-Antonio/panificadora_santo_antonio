@@ -31,3 +31,7 @@ Nosso cliente é o proprietário de uma panificadora (Panificadora Santo Antôni
 
 ## URL heroku
 https://panificadora-santo-antonio.herokuapp.com/
+
+## Usuario Administrador Padrão
+email: admin@admin.com
+senha: 123456

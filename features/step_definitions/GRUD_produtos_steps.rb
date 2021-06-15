@@ -1,6 +1,6 @@
 Given('acesso o sistema com email {string} e senha {string}')do |email, password|
     visit '/'
-    visit '/users/sign_in'
+    visit '/my/users/sign_in'
     fill_in 'email', :with => email
     fill_in 'password', :with => password
     click_button 'Log in'

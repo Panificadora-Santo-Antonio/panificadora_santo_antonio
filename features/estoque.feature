@@ -1,3 +1,4 @@
+#Estoque
 Feature: Estoque
   As a usuario do sistema
   I want to adicionar, visualizar e remover quantidade de produto do estoque

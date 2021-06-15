@@ -48,11 +48,9 @@ Then('eu vejo mensagem que foi atualizado com sucesso')do
     expect(page).to have_content("Produto was successfully updated")
 end
 
-
 Then ('eu vejo mensagem insira um numero') do
     expect(page).to have_content("insira um numero")
 end
-
 
 
 Then ('eu vejo mensagem que quantidade de estoque do produto não pode ficar em branco') do

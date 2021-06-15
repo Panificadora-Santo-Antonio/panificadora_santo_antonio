@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :check_role, only: %i[ index ]
 
   def show
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def index

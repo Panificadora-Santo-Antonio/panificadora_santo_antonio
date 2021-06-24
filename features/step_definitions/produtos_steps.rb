@@ -1,11 +1,3 @@
-Given('acesso o sistema com email {string} e senha {string}')do |email, password|
-    visit '/'
-    visit '/my/users/sign_in'
-    fill_in 'email', :with => email
-    fill_in 'password', :with => password
-    click_button 'Log in'
-end
-
 Given ('eu estou na pagina de criacao de produto') do
     visit new_produto_path
 end
@@ -21,7 +13,6 @@ end
 Then ('eu vejo uma mensagem que nao posso criar um produto com nome vazio') do
     expect(page).to have_content("Nome can't be blank")
 end
-
 
 When ('eu seleciono validade como {string} {string} {string}') do |year, month, day|
     select(year,   :from => 'produto_validade_1i')
@@ -44,7 +35,7 @@ Then ('eu vejo uma mensagem que o produto foi criado com sucesso') do
     expect(page).to have_content("Produto was successfully created")
 end
 
-When('eu vou para a pagina de edição do produto criado anteriormente') do
+When('eu vou para a pagina de edicao do produto criado anteriormente') do
     click_link 'Edit'
 end
 
@@ -55,7 +46,6 @@ end
 When('clico no botao update produto')do
     click_button 'submit'
 end
-
 
 Then('eu vejo uma mensagem que o produto foi atualizado com sucesso')do
     expect(page).to have_content("Produto was successfully updated")

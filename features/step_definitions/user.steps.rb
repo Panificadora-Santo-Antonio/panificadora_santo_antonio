@@ -10,7 +10,7 @@ Given ('eu estou na pagina de novo usuario') do
   visit new_user_registration_path
 end
 
-When("eu crio um usuario com o email {string} e a senha {string} e a confirmação de senha {string} e o nome {string} e a role {string}") do |email, senha, confirmacao_senha, nome, role|
+When("eu crio um usuario com o email {string} e a senha {string} e a confirmacao de senha {string} e o nome {string} e a role {string}") do |email, senha, confirmacao_senha, nome, role|
   fill_in 'user[email]', :with => email
   fill_in 'user[password]', :with => senha
   fill_in 'user[password_confirmation]', :with => confirmacao_senha
@@ -30,7 +30,7 @@ And('eu estou na pagina de edicao de usuario de email {string}') do |email|
   click_link 'Edit User'
 end
 
-When("eu edito um usuario com email {string} e a senha {string} e a confirmação de senha {string} e o nome {string} e a role {string}") do |email, senha, confirmacao_senha, nome, role|
+When("eu edito um usuario com email {string} e a senha {string} e a confirmacao de senha {string} e o nome {string} e a role {string}") do |email, senha, confirmacao_senha, nome, role|
   fill_in 'user[email]', :with => email
   fill_in 'user[password]', :with => senha
   fill_in 'user[password_confirmation]', :with => confirmacao_senha
@@ -45,7 +45,7 @@ end
 Then ('eu vejo uma mensagem de erro') do
   expect(page).to have_content("Name can't be blank")
 end
-Then ('eu vejo uma mensagem de erro de caracter minum allowed') do
+Then ('eu vejo uma mensagem de erro de minimo caracter alocado') do
   expect(page).to have_content("Name 3 characters is the minimum allowed")
 end
 Then ('eu vejo uma mensagem de erro de senha nao pode ser vazia') do

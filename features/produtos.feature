@@ -1,4 +1,4 @@
-Feature: GRUD produtos
+Feature: produtos
   As a usuario do sistema
   I want to adicionar, deletar e atualizar informações dos produtos
   So that tenha acesso as informações dos produtos no sistema

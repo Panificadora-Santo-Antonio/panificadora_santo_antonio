@@ -17,5 +17,4 @@ script:
     - bundle exec rails webpacker:compile
     - bundle exec rails test test/models/produto_test.rb
     - bundle exec rails test test/models/user_test.rb
-    - bundle exec rails test test/models/estoque_test.rb
-
+    -

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :sales
+  resources :customers
+
   root 'home#index'
   devise_for :users, :path_prefix => 'my',
     controllers: {:registrations => "registrations"}

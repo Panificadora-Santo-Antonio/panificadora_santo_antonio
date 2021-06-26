@@ -15,7 +15,7 @@ class ProdutosController < ApplicationController
   # GET /produtos/new
   def new
     @produto = Produto.new
-    @produto.build_estoque
+
   end
 
   # GET /produtos/1/edit
@@ -25,7 +25,7 @@ class ProdutosController < ApplicationController
   # POST /produtos or /produtos.json
   def create
     @produto = Produto.new(produto_params)
-    #@produto.estoque.valorTotalEstoque = @produto.estoque.quantidadeProduto * @produto.preco
+
 
     respond_to do |format|
       if @produto.save
@@ -68,6 +68,6 @@ class ProdutosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def produto_params
-      params.require(:produto).permit(:nome, :descrição, :preco, :validade,estoque_attributes:[:quantidadeProduto,:valorTotalEstoque, :produto_id])
+      params.require(:produto).permit(:nome, :descricao, :preco, :validade,:quantidade)
     end
 end

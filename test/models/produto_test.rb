@@ -12,12 +12,12 @@ class ProdutoTest < ActiveSupport::TestCase
   end
 
   test 'should save produto with valid nome, preco e validade' do
-    produto = Produto.new(nome:"teste", preco:"1", validade:"2025-01-01")
+    produto = Produto.new(nome:"teste", preco:"1", validade:"2025-01-01",quantidade: '1')
     assert produto.save
   end
 
   test 'should save produto without valid nome' do
-    produto = Produto.new(nome:"", preco:"1", validade:"2000-01-01")
+    produto = Produto.new(nome:"", preco:"1", validade:"2000-01-01", quantidade:'1')
     assert_not produto.save
   end
  

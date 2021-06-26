@@ -10,5 +10,38 @@
   <%= @customer.phone %>
 </p>
 
+
+  <p>
+    <strong>Zip code:</strong>
+    <%= @customer.address.zip_code %>
+  </p>
+
+  <p>
+    <strong>City:</strong>
+    <%= @customer.address.city %>
+  </p>
+
+  <p>
+    <strong>District:</strong>
+    <%= @customer.address.district %>
+  </p>
+
+  <p>
+    <strong>Road:</strong>
+    <%= @customer.address.road %>
+  </p>
+
+  <p>
+    <strong>Number:</strong>
+    <%= @customer.address.number %>
+  </p>
+
+  <% if @customer.address.complement? %>
+    <p>
+      <strong>Complement:</strong>
+      <%= @customer.address.complement %>
+    </p>
+  <% end %>
+
 <%= link_to 'Edit', edit_customer_path(@customer) %> |
 <%= link_to 'Back', customers_path %>

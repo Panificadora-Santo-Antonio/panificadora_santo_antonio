@@ -1,11 +1,3 @@
-Given('faco login com email {string} e senha {string}')do |email, password|
-    visit '/'
-    visit '/users/sign_in'
-    fill_in 'email', :with => email
-    fill_in 'password', :with => password
-    click_button 'Log in'
-end
-
 Given ('eu estou na pagina de new produto') do
     visit new_produto_path
 end
@@ -22,10 +14,6 @@ When ('eu coloco validade como {string} {string} {string}') do |year, month, day
     select(year,   :from => 'produto_validade_1i')
     select(month,  :from => 'produto_validade_2i')
     select(day,    :from => 'produto_validade_3i')
-end
-
-When ('clico em create produto') do
-    click_button 'submit'
 end
 
 Then ('eu vejo mensagem que foi criado com sucesso') do
@@ -52,8 +40,7 @@ Then ('eu vejo mensagem insira um numero') do
     expect(page).to have_content("insira um numero")
 end
 
-
-Then ('eu vejo mensagem que quantidade de estoque do produto não pode ficar em branco') do
+Then ('eu vejo mensagem que quantidade de estoque do produto nao pode ficar em branco') do
     expect(page).to have_content("Estoque quantidadeproduto can't be blank")
 end
 
@@ -61,10 +48,6 @@ Then ('eu vejo mensagem que quantidade de estoque do produto deve ser maior ou i
     expect(page).to have_content("Estoque quantidadeproduto must be greater than or equal to 1")
 end
 
-Then ('eu vejo mensagem que valor de estoque do produto não pode ficar em branco') do
+Then ('eu vejo mensagem que valor de estoque do produto nao pode ficar em branco') do
     expect(page).to have_content("valortotalestoque can't be blank")
 end
-
-
-
-

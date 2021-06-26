@@ -13,6 +13,7 @@ class CustomersController < ApplicationController
   # GET /customers/new
   def new
     @customer = Customer.new
+    @customer.build_adress
   end
 
   # GET /customers/1/edit
@@ -64,6 +65,6 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:name, :telefone)
+      params.require(:customer).permit(:name, :phone, addresses_attributes: [:zip_code, :city, :district, :road, :number, :complement, :id])
     end
 end

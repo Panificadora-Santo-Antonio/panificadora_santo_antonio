@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_06_26_180406) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "role"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

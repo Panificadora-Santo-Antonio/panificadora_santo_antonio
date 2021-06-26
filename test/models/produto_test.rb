@@ -11,7 +11,7 @@ class ProdutoTest < ActiveSupport::TestCase
     assert_not produto.save
   end
 
-  test 'should save produto with valid nome, preco e validade' do
+  test 'should save produto with valid nome, descricao, preco, validade e quantidade' do
     produto = Produto.new(nome:"teste", descricao: "", preco:"1", validade:"2025-01-01",quantidade: '1')
     assert produto.save
   end

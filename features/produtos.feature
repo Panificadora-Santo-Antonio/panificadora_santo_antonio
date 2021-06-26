@@ -21,7 +21,7 @@ Feature: produtos
   Scenario: adicionar produto valido
     Given estou logada no sistema com email 'admin@admin.com' e senha '123456'
     And eu estou na pagina de criacao de produto
-    When eu preencho o campo nome com 'teste', preco com '1', quantidade com '1', valor total '1'
+    When eu preencho o campo nome com 'teste', preco com '1', quantidade com '1'
     And eu seleciono validade como "2022" "March" "2"
     And clico no botao create produto
     Then eu vejo uma mensagem que o produto foi criado com sucesso
@@ -29,7 +29,7 @@ Feature: produtos
   Scenario: atualizar preco de produto
     Given estou logada no sistema com email 'admin@admin.com' e senha '123456'
     And eu estou na pagina de criacao de produto
-    When eu preencho o campo nome com 'teste2', preco com '1', quantidade com '1', valor total '1'
+    When eu preencho o campo nome com 'teste2', preco com '1', quantidade com '1'
     And eu seleciono validade como "2022" "March" "2"
     And clico no botao create produto
     And eu vou para a pagina de edicao do produto criado anteriormente
@@ -40,7 +40,7 @@ Feature: produtos
   Scenario: atualizar nome de produto
     Given estou logada no sistema com email 'admin@admin.com' e senha '123456'
     And eu estou na pagina de criacao de produto
-    When eu preencho o campo nome com 'teste3', preco com '1', quantidade com '1', valor total '1'
+    When eu preencho o campo nome com 'teste3', preco com '1', quantidade com '1'
     And eu seleciono validade como "2022" "March" "2"
     And clico no botao create produto
     And eu vou para a pagina de edicao do produto criado anteriormente

@@ -32,22 +32,14 @@ ActiveRecord::Schema.define(version: 2021_06_26_180406) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "estoques", force: :cascade do |t|
-    t.integer "quantidadeProduto"
-    t.decimal "valorTotalEstoque"
-    t.integer "produto_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["produto_id"], name: "index_estoques_on_produto_id"
-  end
-
   create_table "produtos", force: :cascade do |t|
     t.string "nome"
-    t.text "descrição"
+    t.text "descricao"
     t.decimal "preco"
     t.date "validade"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "quantidade"
   end
 
   create_table "users", force: :cascade do |t|
@@ -65,5 +57,4 @@ ActiveRecord::Schema.define(version: 2021_06_26_180406) do
   end
 
   add_foreign_key "addresses", "customers"
-  add_foreign_key "estoques", "produtos"
 end

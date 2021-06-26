@@ -2,12 +2,12 @@
 
 one:
   nome: MyString
-  descrição: MyText
+  descricao: MyText
   preco: 9.99
   validade: 2021-06-08
 
 two:
   nome: MyString
-  descrição: MyText
+  descricao: MyText
   preco: 9.99
   validade: 2021-06-08

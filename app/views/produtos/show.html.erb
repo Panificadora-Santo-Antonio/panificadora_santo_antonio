@@ -7,7 +7,7 @@
 
 <p>
   <strong>Description:</strong>
-  <%= @produto.descrição %>
+  <%= @produto.descricao %>
 </p>
 
 <p>
@@ -21,13 +21,8 @@
 </p>
 
 <p>
-  <strong>Product Quantity:</strong>
-  <%= @produto.estoque.quantidadeProduto %>
-</p>
-
-<p>
-  <strong>Total Stock Value:</strong>
-  <%= @produto.estoque.valorTotalEstoque %>
+  <strong> Quantity:</strong>
+  <%= @produto.quantidade %>
 </p>
 
 <%= link_to 'Edit', edit_produto_path(@produto), id: "Edit" %> |

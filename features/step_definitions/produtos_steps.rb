@@ -24,11 +24,11 @@ Then ('eu vejo uma mensagem o campo validade esta invalida') do
     expect(page).to have_content("Validade must be after")
 end
 
-When ('eu preencho o campo nome com {string}, preco com {string}, quantidade com {string}, valor total {string}')do |nome, preco, quantidade, total|
+When ('eu preencho o campo nome com {string}, preco com {string}, quantidade com {string}')do |nome, preco, quantidade|
     fill_in 'nome', :with => nome
     fill_in 'preco', :with => preco
-    fill_in 'quantiProduto', :with => quantidade
-    fill_in 'valorTotalEstoque', :with => total
+    fill_in 'quantidade', :with => quantidade
+
 end
 
 Then ('eu vejo uma mensagem que o produto foi criado com sucesso') do

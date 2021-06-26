@@ -18,7 +18,7 @@
 
   <div class="field">
     <%= form.label :Description %>
-    <%= form.text_area :descrição, id:"descricao" %>
+    <%= form.text_area :descricao, id:"descricao" %>
   </div>
 
   <div class="field">
@@ -30,19 +30,12 @@
     <%= form.label :validity %>
     <%= form.date_select :validade, id:"validade" %>
   </div>
-  <h2> Estoque </h2>
-  <%= form.fields_for :estoque do |estoque| %>
-    <div class="field">
-      <%= estoque.label :product_quantity %>
-      <%= estoque.number_field :quantidadeProduto, id:"quantiProduto" %>
-    </div>
-    <div class="field">
-      <%= estoque.label :valorTotalEstoque %>
-      <%= estoque.number_field :valorTotalEstoque, id:"valorTotalEstoque" %>
-    </div>
 
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantidade, id:"quantidade" %>
+  </div>
 
-  <% end %>
 
   <div class="actions">
     <%= form.submit id:"submit" %>

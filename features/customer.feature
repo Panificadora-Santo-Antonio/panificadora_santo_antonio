@@ -17,3 +17,10 @@ Feature: customer
       And eu clico em criar o cliente
       Then eu vejo uma mensagem de erro que nome nao pode ser vazio
 
+  Scenario: criar um novo cliente com nome com um caracter
+      Given estou logada no sistema com email 'admin@admin.com' e senha '123456'
+      And eu estou na pagina de novo cliente
+      When eu crio um cliente com o name 'A' e o phone '87999226421' e o zip_code '55360000', city 'Caetes', district 'Centro', road 'Rua José Frazão', number: '25', complement: ''
+      And eu clico em criar o cliente
+      Then eu vejo uma mensagem de erro que nome tem que ter 3 caracters minimos
+

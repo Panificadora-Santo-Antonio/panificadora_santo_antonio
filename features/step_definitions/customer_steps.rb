@@ -23,4 +23,7 @@ end
 Then ('eu vejo uma mensagem de erro que nome nao pode ser vazio') do
   expect(page).to have_content("Name can't be blank")
 end
+Then ('eu vejo uma mensagem de erro que nome tem que ter 3 caracters minimos') do
+  expect(page).to have_content("Name 3 characters is the minimum allowed")
+end
 

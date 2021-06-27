@@ -48,3 +48,7 @@ end
 Then ('eu vejo uma mensagem que o cliente foi atualizado com sucesso') do
   expect(page).to have_content("Customer was successfully updated.")
 end
+
+Then ('eu vejo uma mensagem que o telefone nao pode ser vazio') do
+  expect(page).to have_content("Phone can't be blank")
+end

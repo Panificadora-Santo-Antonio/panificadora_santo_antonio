@@ -10,6 +10,10 @@
 
 <% if current_user %>
  <% if current_user.role == "Admin" %>
+    <h5> SALE</h5>
+    <%= link_to 'New Sale', new_sale_path %>
+    </br>
+    <%= link_to 'Sale List', sales_path %>
     </br>
     <h5> PRODUCT </h5>
     <%= link_to 'New Product', new_produto_path %>

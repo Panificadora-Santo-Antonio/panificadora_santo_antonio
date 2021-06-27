@@ -13,10 +13,14 @@ When("eu crio um cliente com o name {string} e o phone {string} e o zip_code {st
   fill_in 'complement', :with => complement
 end
 
-And('And eu clico em criar o cliente') do
+And('eu clico em criar o cliente') do
   click_button 'Create Customer'
  end
 
- Then ('eu vejo uma mensagem de cadastro de cliente com sucesso') do
+Then ('eu vejo uma mensagem de cadastro de cliente com sucesso') do
   expect(page).to have_content("Customer was successfully created.")
 end
+Then ('eu vejo uma mensagem de erro que nome nao pode ser vazio') do
+  expect(page).to have_content("Name can't be blank")
+end
+

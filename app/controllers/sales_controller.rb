@@ -49,12 +49,25 @@ class SalesController < ApplicationController
 
   # DELETE /sales/1 or /sales/1.json
   def destroy
+    for product_sale in @sale.product_sale
+      product_sale.destroy
+    end
     @sale.destroy
     respond_to do |format|
       format.html { redirect_to sales_url, notice: "Sale was successfully destroyed." }
       format.json { head :no_content }
     end
   end
+
+  def finalizeSale
+    @sale = Sale.find(params[:id])
+
+    @sale.product_sale.each do |product_sale|
+      Produto.update(product_sale.produto_id, :quantidade => product_sale.produto.quantidade - product_sale[:quantity].to_d)
+    end
+    redirect_to root_path, notice: "Sale was successfully finalized."
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

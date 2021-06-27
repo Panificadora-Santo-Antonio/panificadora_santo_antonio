@@ -14,8 +14,10 @@ class ProductSalesTest < ApplicationSystemTestCase
     visit product_sales_url
     click_on "New Product Sale"
 
+    fill_in "Produto", with: @product_sale.produto_id
     fill_in "Quantity", with: @product_sale.quantity
-    fill_in "Totalproductprice", with: @product_sale.totalProductPrice
+    fill_in "Sale", with: @product_sale.sale_id
+    fill_in "Total product price", with: @product_sale.total_product_price
     click_on "Create Product sale"
 
     assert_text "Product sale was successfully created"
@@ -26,8 +28,10 @@ class ProductSalesTest < ApplicationSystemTestCase
     visit product_sales_url
     click_on "Edit", match: :first
 
+    fill_in "Produto", with: @product_sale.produto_id
     fill_in "Quantity", with: @product_sale.quantity
-    fill_in "Totalproductprice", with: @product_sale.totalProductPrice
+    fill_in "Sale", with: @product_sale.sale_id
+    fill_in "Total product price", with: @product_sale.total_product_price
     click_on "Update Product sale"
 
     assert_text "Product sale was successfully updated"

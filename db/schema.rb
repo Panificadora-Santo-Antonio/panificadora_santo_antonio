@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_26_191313) do
+ActiveRecord::Schema.define(version: 2021_06_27_001455) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "zip_code"
@@ -33,10 +33,14 @@ ActiveRecord::Schema.define(version: 2021_06_26_191313) do
   end
 
   create_table "product_sales", force: :cascade do |t|
+    t.integer "sale_id", null: false
+    t.integer "produto_id", null: false
     t.integer "quantity"
-    t.decimal "totalProductPrice"
+    t.decimal "total_product_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["produto_id"], name: "index_product_sales_on_produto_id"
+    t.index ["sale_id"], name: "index_product_sales_on_sale_id"
   end
 
   create_table "produtos", force: :cascade do |t|
@@ -66,9 +70,11 @@ ActiveRecord::Schema.define(version: 2021_06_26_191313) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "role"
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "addresses", "customers"
+  add_foreign_key "product_sales", "produtos"
+  add_foreign_key "product_sales", "sales"
 end

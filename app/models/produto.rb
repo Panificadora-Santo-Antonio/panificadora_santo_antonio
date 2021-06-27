@@ -6,4 +6,6 @@ class Produto < ApplicationRecord
   validates_datetime :validade, after: :today
   validates :quantidade, presence: true, :numericality => { :greater_than_or_equal_to => 0 }
 
+  has_many :product_sale
+  has_many :sales, through: :product_sale
 end

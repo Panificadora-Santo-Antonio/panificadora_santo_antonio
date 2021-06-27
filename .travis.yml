@@ -17,6 +17,9 @@ script:
     - bundle exec rails webpacker:compile
     - bundle exec rails test test/models/produto_test.rb
     - bundle exec rails test test/models/user_test.rb
+    - bundle exec rails test test/models/customer_test.rb
+    - bundle exec rails test test/models/address_test.rb
     - bundle exec cucumber features/user.feature
     - bundle exec cucumber features/produtos.feature
+    - bundle exec cucumber features/customer.feature
 

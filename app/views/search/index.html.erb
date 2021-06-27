@@ -5,17 +5,18 @@
     <label>Customer name or Phone:</label>
     <input type="text" class="form-control" name="name" value="<%params[:name] %>">
 
-    <label>Date of:</label>
-    <input type="date" style="width: 180px" class="form-control" name="date_of" value="<%= params[:date_of] %>">
+    <label>Start date:</label>
+    <input type="date" style="width: 180px" class="form-control" name="start_date" value="<%= params[:start_date] %>">
 
-    <label>Date until:</label>
-    <input type="date" style="width: 180px" class="form-control" name="date_until" value="<%= params[:date_until] %>">
+    <label>Final date:</label>
+    <input type="date" style="width: 180px" class="form-control" name="final_date" value="<%= params[:final_date] %>">
 
     <label>Value of:</label>
-    <input type="text" placeholder="00.00" style="width: 180px" class="form-control" name="valeu_of" value="<%= params[:value_of] %>">
+    <input type="text" placeholder="00.00" style="width: 180px" class="form-control" name="value_of" value="<%= params[:value_of] %>">
 
     <label>Value up to:</label>
     <input type="text"  placeholder="00.00" style="width: 180px" class="form-control" name="value_up_to" value="<%= params[:value_up_to] %>">
+
     <br>
     <input type="submit" value="Search" class="btn btn-primary">
   </div>
@@ -46,8 +47,10 @@
       <tr>
         <td><%= sale.customer.name %></td>
         <td><%= sale.totalValue %></td>
-        <td><%= sale.date_time %></td>
-
+        <td><%= sale.created_at.strftime("%d/%m/%Y") %></td>
+        <td><%= link_to 'Show', sale %></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
     </tbody>

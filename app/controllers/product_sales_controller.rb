@@ -48,13 +48,13 @@ class ProductSalesController < ApplicationController
             end
           end
         else
-          redirect_to new_sale_product_sale_path(@venda), notice: "Products quantity  exceeds the quantity in stock."
+          redirect_to sale_path(@sale), notice: "Products quantity  exceeds the quantity in stock."
         end
       else
-       redirect_to new_sale_product_sale_path(@venda), notice: "Quantity of products field must be filled."
+       redirect_to sale_path(@sale), notice: "Quantity of products field must be filled."
       end
     else
-      redirect_to new_sale_product_sale_path(@venda), notice: "Out of stock product."
+      redirect_to sale_path(@sale), notice: "Out of stock product."
     end
   end
 

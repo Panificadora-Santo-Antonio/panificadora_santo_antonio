@@ -4,19 +4,18 @@
   <%= @sale.customer.name %>
 </p>
 <p>
-  <strong>Totalvalue:</strong>
+  <strong>Total Value:</strong>
   <%= @sale.totalValue %>
 </p>
 
-<p>
-  <strong>Date time:</strong>
-  <%= @sale.date_time %>
-</p>
 
 
 
-<%= link_to 'Adicionar Produto', new_sale_product_sale_path(@sale) %>
-<%= link_to 'Finalizar Venda', finalizeSale_sale_path(@sale)%>
-
+<%= link_to 'Add Product', new_sale_product_sale_path(@sale) %>
+</br>
+</br>
+<%= link_to 'Finalize Sale', finalizeSale_sale_path(@sale)%>
+</br>
+</br>
 <%= link_to 'Edit', edit_sale_path(@sale) %> |
 <%= link_to 'Back', sales_path %>

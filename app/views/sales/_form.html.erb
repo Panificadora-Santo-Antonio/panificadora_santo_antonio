@@ -16,14 +16,10 @@
     <%= form.select :customer_id, Customer.all.collect{|c| [c.name,c.id]} %>
   </div>
   <div class="field">
-    <%= form.label :totalValue %>
-    <%= form.text_field :totalValue %>
+    <%= form.label :total_Value %>
+    <%= form.text_field :totalValue, value: "0" %>
   </div>
 
-  <div class="field">
-    <%= form.label :date_time %>
-    <%= form.text_field :date_time %>
-  </div>
 
   <div class="actions">
     <%= form.submit %>

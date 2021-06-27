@@ -67,6 +67,7 @@ class SalesController < ApplicationController
     @sale.product_sale.each do |product_sale|
       Produto.update(product_sale.produto_id, :quantidade => product_sale.produto.quantidade - product_sale[:quantity].to_d)
     end
+    @sale.update(:date_time => DateTime.current)
     redirect_to root_path, notice: "Sale was successfully finalized."
   end
 

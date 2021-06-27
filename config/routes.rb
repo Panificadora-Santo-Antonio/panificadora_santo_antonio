@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
- 
+  resources :search
   resources :customers
 
   get 'home',to:'sale#new'

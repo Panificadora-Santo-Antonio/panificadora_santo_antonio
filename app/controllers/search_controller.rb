@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  before_action :authenticate_user!
+  before_action :check_role
   def index
     @sales = Sale.all
     @sales = @sales.joins(:customer)
@@ -21,8 +23,6 @@ class SearchController < ApplicationController
 
     if params[:value_of].present? && params[:value_up_to].present?
       @sales = @sales.where(["sales.totalValue >= ? AND sales.totalValue <= ? " , "#{params[:value_of]}","#{params[:value_up_to]}"])
-      #@sales = @sales.where("sales.totalValue >= '" + valueOf + "'")
-      #@sales = @sales.where("sales.totalValue <= '" + valueUpTo + "'")
     elsif params[:value_of].present? && params[:value_up_to].blank?
       @sales = @sales.where(["sales.totalValue >= ?","#{params[:value_of]}"])
     elsif  params[:value_of].blank? && params[:value_up_to].present?

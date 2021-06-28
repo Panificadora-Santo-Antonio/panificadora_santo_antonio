@@ -17,7 +17,12 @@
       <tr>
         <td><%= customer.name %></td>
         <td><%= customer.phone %></td>
-        <td><%= customer.address_id %></td>
+        <td><%= customer.address.zip_code %></td>
+        <td><%= customer.address.city %></td>
+        <td><%= customer.address.district %></td>
+        <td><%= customer.address.road %></td>
+        <td><%= customer.address.number %></td>
+        <td><%= customer.address.complement %></td>
         <td><%= link_to 'Show', customer %></td>
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

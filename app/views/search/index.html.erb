@@ -6,16 +6,16 @@
     <input type="text" class="form-control" name="name" value="<%params[:name] %>">
 
     <label>Start date:</label>
-    <input type="date" style="width: 180px" class="form-control" name="start_date" value="<%= params[:start_date] %>">
+    <input type="date" style="width: 180px" class="form-control" name="start_date" value="<%= params[:start_date] %>" onfocus="this.value='';">
 
     <label>Final date:</label>
-    <input type="date" style="width: 180px" class="form-control" name="final_date" value="<%= params[:final_date] %>">
+    <input type="date" style="width: 180px" class="form-control" name="final_date" value="<%= params[:final_date] %>" onfocus="this.value='';">
 
     <label>Value of:</label>
-    <input type="text" placeholder="00.00" style="width: 180px" class="form-control" name="value_of" value="<%= params[:value_of] %>">
+    <input type="text" placeholder="00.00" style="width: 180px" class="form-control" name="value_of" value="<%= params[:value_of] %>" onfocus="this.value='';">
 
     <label>Value up to:</label>
-    <input type="text"  placeholder="00.00" style="width: 180px" class="form-control" name="value_up_to" value="<%= params[:value_up_to] %>">
+    <input type="text"  placeholder="00.00" style="width: 180px" class="form-control" name="value_up_to" value="<%= params[:value_up_to] %>" onfocus="this.value='';">
 
     <br>
     <input type="submit" value="Search" class="btn btn-primary">

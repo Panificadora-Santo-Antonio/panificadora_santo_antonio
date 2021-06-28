@@ -22,4 +22,5 @@ script:
     - bundle exec cucumber features/user.feature
     - bundle exec cucumber features/produtos.feature
     - bundle exec cucumber features/customer.feature
-
+    - bundle exec cucumber features/address.feature
+    

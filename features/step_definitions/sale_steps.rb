@@ -42,3 +42,6 @@ Then ('eu vejo uma mensagem que nao posso adicionar um produto em falta no estoq
     expect(page).to have_content("Out of stock product")
 end
 
+Then ('eu vejo que o produto {string} foi adicionado a venda') do |nome_produto|
+    expect(page).to have_content(nome_produto)
+end

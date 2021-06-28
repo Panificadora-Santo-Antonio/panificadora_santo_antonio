@@ -75,9 +75,10 @@ class ProductSalesController < ApplicationController
   def destroy
     @product_sale.destroy
     respond_to do |format|
-      format.html { redirect_to product_sales_url, notice: "Product sale was successfully destroyed." }
+      format.html { redirect_to sale_path(@sale), notice: "Product sale was successfully destroyed." }
       format.json { head :no_content }
     end
+    Sale.update(@sale.id, :totalValue => @sale[:totalValue].to_d - (@product_sale[:quantity].to_d * @product_sale.produto.preco.to_d))
   end
 
   private

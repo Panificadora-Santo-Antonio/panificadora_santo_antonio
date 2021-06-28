@@ -3,10 +3,23 @@
   <strong>Customer:</strong>
   <%= @sale.customer.name %>
 </p>
+
+<div class="row">
+    <% for product_sale in @sale.product_sale %>
+                    Product: <%=  product_sale.produto.nome %>
+                   | Quantity: <%= product_sale.quantity %>
+                   | Value: <%= "R$ %0.02f" % product_sale.total_product_price %>
+            | <%= link_to 'Remover Produto',[@sale, product_sale], method: :delete, data: { confirm: 'Deseja remover este produto da venda?' } %>
+            </br>
+    <% end %>
+</div>
+
 <p>
   <strong>Total Value:</strong>
-  <%= @sale.totalValue %>
+  <%= "R$ %0.02f" % @sale.totalValue %>
 </p>
+
+
 
 
 

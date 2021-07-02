@@ -80,6 +80,7 @@ class SalesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def sale_params
-      params.require(:sale).permit(:totalValue, :date_time, :customer_id)
+      params[:sale][:user_id] = current_user.id
+      params.require(:sale).permit(:totalValue, :date_time, :customer_id, :user_id)
     end
 end

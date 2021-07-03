@@ -2,11 +2,21 @@ class RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, only: [:new, :create]
 
   def new
-    super
+    @user = User.new
   end
 
   def create
-    super
+    @user = User.new(user_params)
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: "Customer was successfully created." }
+        format.json { render :show, status: :created, location: @user }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def edit
@@ -34,7 +44,7 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.find(params[:id])
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to root_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_path, notice: "User was successfully destroyed." }
       format.json { head :no_content }
     end
   end

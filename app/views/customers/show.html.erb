@@ -1,47 +1,47 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong>Nome:</strong>
   <%= @customer.name %>
 </p>
 
 <p>
-  <strong>Phone:</strong>
+  <strong>Telefone:</strong>
   <%= @customer.phone %>
 </p>
 
 
   <p>
-    <strong>Zip code:</strong>
+    <strong>CEP:</strong>
     <%= @customer.address.zip_code %>
   </p>
 
   <p>
-    <strong>City:</strong>
+    <strong>Cidade:</strong>
     <%= @customer.address.city %>
   </p>
 
   <p>
-    <strong>District:</strong>
+    <strong>Bairro:</strong>
     <%= @customer.address.district %>
   </p>
 
   <p>
-    <strong>Road:</strong>
+    <strong>Logradouro:</strong>
     <%= @customer.address.road %>
   </p>
 
   <p>
-    <strong>Number:</strong>
+    <strong>Número:</strong>
     <%= @customer.address.number %>
   </p>
 
   <% if @customer.address.complement? %>
     <p>
-      <strong>Complement:</strong>
+      <strong>Complemento:</strong>
       <%= @customer.address.complement %>
     </p>
   <% end %>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', root_path %>
+<%= link_to 'Editar', edit_customer_path(@customer) %> |
+<%= link_to 'Voltar', root_path %>

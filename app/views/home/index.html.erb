@@ -1,67 +1,67 @@
 <h1> PANIFICADORA SANTO ANTONIO </h1>
 <% if current_user %>
-  Welcome <%= current_user.name %> | Role: <%= current_user.role %>
+  Bem Vindo(a) <%= current_user.name %> | Função: <%= current_user.role %>
   </br>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  <%= link_to "Sair", destroy_user_session_path, method: :delete %>
 <% else %>
-  <%= link_to "Login", new_user_session_path %>
+  <%= link_to "Entrar", new_user_session_path %>
 <% end %>
 <p id="notice" <%= notice %></p>
 
 <% if current_user %>
  <% if current_user.role == "Admin" %>
-    <h5> SALE</h5>
-    <%= link_to 'New Sale', new_sale_path %>
+    <h5> Vendas</h5>
+    <%= link_to 'Nova Venda', new_sale_path %>
     </br>
-    <%= link_to 'Sale List', sales_path %>
+    <%= link_to 'Lista de Vendas', sales_path %>
     </br>
-    <h5> PRODUCT </h5>
-    <%= link_to 'New Product', new_produto_path %>
+    <h5> Produtos </h5>
+    <%= link_to 'Novo Produto', new_produto_path %>
     </br>
-    <%= link_to 'Product List', produtos_path %>
+    <%= link_to 'Lista de Produtos', produtos_path %>
     </br>
-    <h5> CUSTOMER </h5>
-    <%= link_to 'New Customer', new_customer_path %> 
+    <h5> Clientes </h5>
+    <%= link_to 'Novo Cliente', new_customer_path %> 
     </br>
-    <%= link_to 'Customer List', customers_path %>
+    <%= link_to 'Lista de Clientes', customers_path %>
     <br>
-    <h5> SEARCH </h5>
-    <%= link_to 'Search', search_index_path %>
+    <h5> Busca em Venda </h5>
+    <%= link_to 'Busca', search_index_path %>
 
 
     </br>
-    <h5> USER </h5>
-    <%= link_to "New User", new_user_registration_path %> 
+    <h5> Usuários </h5>
+    <%= link_to "Novo Usuário", new_user_registration_path %> 
     </br>
-    <%= link_to 'Show User', user_path(current_user) %>
+    <%= link_to 'Mostrar Usuário Atual', user_path(current_user) %>
     </br>
-    <%= link_to 'Users List', users_path %>
+    <%= link_to 'Lista de Usuários', users_path %>
     </br>
-    <%= link_to 'Edit User', edit_user_registration_path(current_user) %>
+    <%= link_to 'Editar Usuário Atual', edit_user_registration_path(current_user) %>
     </br>
-    <%= button_to "Cancel my account", registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete %></p>
+    <%= button_to "Cancelar minha conta", registration_path(current_user), data: { confirm: "Você tem certeza?" }, method: :delete %></p>
     </br>
 
   <% else %>
-     <h5> SALE</h5>
-    <%= link_to 'New Sale', new_sale_path %>
+     <h5> Vendas</h5>
+    <%= link_to 'Nova Venda', new_sale_path %>
     </br>
-    <h5> PRODUCT </h5>
-    <%= link_to 'New Product', new_produto_path %>
+    <h5> Produtos</h5>
+    <%= link_to 'Novo Produto', new_produto_path %>
     </br>
-    <%= link_to 'Product List', produtos_path %>
+    <%= link_to 'Lista de Produtos', produtos_path %>
     </br>
-    <h5> CUSTOMER </h5>
-    <%= link_to 'New Customer', new_customer_path %>
+    <h5> Clientes </h5>
+    <%= link_to 'Novo Cliente', new_customer_path %>
     </br>
     
-    <h5> USER </h5>
-    <%= link_to 'Show User', user_path(current_user) %>
+    <h5> Usuario </h5>
+    <%= link_to 'Mostrar Usuário Atual', user_path(current_user) %>
     </br>
-    <%= link_to 'Edit User', edit_user_registration_path(current_user) %>
+    <%= link_to 'Editar Usuário Atual', edit_user_registration_path(current_user) %>
     </br>
 
   <% end %>
 <% else %>
- You must be logged in to access
+ Você deve estar logado para acessar o sistema
 <% end %>

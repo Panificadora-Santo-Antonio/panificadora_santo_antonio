@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Customers</h1>
+<h1>Clientes</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Phone</th>
-      <th>Address</th>
+      <th>Nome |</th>
+      <th>Telefone |</th>
+      <th>Endereço</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,9 +23,9 @@
         <td><%= customer.address.road %></td>
         <td><%= customer.address.number %></td>
         <td><%= customer.address.complement %></td>
-        <td><%= link_to 'Show', customer %></td>
-        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar', customer %></td>
+        <td><%= link_to 'Editar', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Apagar', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,5 +33,5 @@
 
 <br>
 
-<%= link_to 'New Customer', new_customer_path %>
-<%= link_to 'Back', root_path %>
+<%= link_to 'Novo Cliente', new_customer_path %>
+<%= link_to 'Voltar', root_path %>

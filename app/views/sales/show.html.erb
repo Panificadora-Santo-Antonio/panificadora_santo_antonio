@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 <p>
-  <strong>Customer:</strong>
+  <strong>Cliente:</strong>
   <%= @sale.customer.name %>
 </p>
 
 <div class="row">
     <% for product_sale in @sale.product_sale %>
-                    Product: <%=  product_sale.produto.nome %>
-                   | Quantity: <%= product_sale.quantity %>
-                   | Value: <%= "R$ %0.02f" % product_sale.total_product_price %>
+                    Produto: <%=  product_sale.produto.nome %>
+                   | Quantidade: <%= product_sale.quantity %>
+                   | Valor: <%= "R$ %0.02f" % product_sale.total_product_price %>
             | <%= link_to 'Remover Produto',[@sale, product_sale], method: :delete, data: { confirm: 'Deseja remover este produto da venda?' } %>
             </br>
     <% end %>
 </div>
 
 <p>
-  <strong>Total Value:</strong>
+  <strong>Valor Total:</strong>
   <%= "R$ %0.02f" % @sale.totalValue %>
 </p>
 
@@ -24,11 +24,10 @@
 
 
 
-<%= link_to 'Add Product', new_sale_product_sale_path(@sale) %>
+<%= link_to 'Adicionar Produto', new_sale_product_sale_path(@sale) %>
 </br>
 </br>
-<%= link_to 'Finalize Sale', finalizeSale_sale_path(@sale)%>
+<%= link_to 'Finalizar Venda', finalizeSale_sale_path(@sale)%>
 </br>
 </br>
-<%= link_to 'Edit', edit_sale_path(@sale) %> |
-<%= link_to 'Back', sales_path %>
+<%= link_to 'Voltar', sales_path %>

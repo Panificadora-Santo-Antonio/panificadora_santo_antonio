@@ -12,32 +12,32 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :Product_Name %>
+    <%= form.label :Nome_produto %>
     <%= form.text_field :nome, id: "nome" %>
   </div>
 
   <div class="field">
-    <%= form.label :Description %>
+    <%= form.label :Descrição%>
     <%= form.text_area :descricao, id:"descricao" %>
   </div>
 
   <div class="field">
-    <%= form.label :Price %>
+    <%= form.label :Preço %>
     <%= form.text_field :preco, id: "preco" %>
   </div>
 
   <div class="field">
-    <%= form.label :validity %>
+    <%= form.label :validade %>
     <%= form.date_select :validade, id:"validade" %>
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
+    <%= form.label :quantidade %>
     <%= form.number_field :quantidade, id:"quantidade" %>
   </div>
 
 
   <div class="actions">
-    <%= form.submit id:"submit" %>
+    <%= form.submit id:"submit" ,:value =>"Cadastro" %>
   </div>
 <% end %>

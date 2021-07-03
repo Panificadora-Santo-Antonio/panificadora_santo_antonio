@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   devise_for :users, :path_prefix => 'my',
     controllers: {:registrations => "registrations"}
+  
   resources :produtos
   resources :customers
 
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   
-  resources :users, :only => %i[show index]
+  resources :users, :only => %i[show index destroy]
   as :user do 
     get "/register", to: "registrations#new", as: "register"
   end

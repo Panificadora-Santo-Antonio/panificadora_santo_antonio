@@ -11,23 +11,15 @@ class SearchController < ApplicationController
       @sales = @sales.where(name_like.matches("%#{params[:name]}%")).or(@sales.where(phone_like.matches("%#{params[:name]}%")))
     end
 
-    if params[:start_date].present? && params[:final_date].present?
-      @sales = @sales.where(["sales.created_at >= ? AND sales.created_at <= ? " , "#{params[:start_date]}","#{params[:final_date]}"])
+    start = params[:start_date]
+    final = params[:final_date]
+    SaleSearchInARange 'created_at',start,final
 
-    elsif  params[:start_date].present? && params[:final_date].blank?
-      @sales = @sales.where(["sales.created_at >= ? ","#{params[:start_date]}"])
+    start = params[:value_of]
+    final = params[:value_up_to]
+    SaleSearchInARange 'totalValue',start,final
 
-    elsif  params[:start_date].blank? && params[:final_date].present?
-      @sales = @sales.where(["sales.created_at <= ? ","#{params[:final_date]}"])
-    end
 
-    if params[:value_of].present? && params[:value_up_to].present?
-      @sales = @sales.where(["sales.totalValue >= ? AND sales.totalValue <= ? " , "#{params[:value_of]}","#{params[:value_up_to]}"])
-    elsif params[:value_of].present? && params[:value_up_to].blank?
-      @sales = @sales.where(["sales.totalValue >= ?","#{params[:value_of]}"])
-    elsif  params[:value_of].blank? && params[:value_up_to].present?
-      @sales = @sales.where(["sales.totalValue <= ?","#{params[:value_up_to]}"])
-    end
     if params[:user_id].present?
       @sales = @sales.where(user_id: params[:user_id])
     end
@@ -36,5 +28,17 @@ class SearchController < ApplicationController
     options = {page: params[:page] || 1, per_page: 5}
     @sales = @sales.paginate(options)
 
+  end
+
+  def SaleSearchInARange (attribute,start,final)
+    if start.present? && final.present?
+      @sales = @sales.where(["sales."+attribute+" >= ? AND sales."+attribute+" <= ? " , start,final])
+
+    elsif start.present?
+      @sales = @sales.where(["sales."+attribute+" >= ? ",start])
+
+    elsif final.present?
+      @sales = @sales.where(["sales."+attribute+" <= ? ",final])
+    end
   end
 end

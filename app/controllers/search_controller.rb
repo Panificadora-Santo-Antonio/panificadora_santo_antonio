@@ -28,6 +28,9 @@ class SearchController < ApplicationController
     elsif  params[:value_of].blank? && params[:value_up_to].present?
       @sales = @sales.where(["sales.totalValue <= ?","#{params[:value_up_to]}"])
     end
+    if params[:user_id].present?
+      @sales = @sales.where(user_id: params[:user_id])
+    end
 
     @sales_total = @sales
     options = {page: params[:page] || 1, per_page: 5}

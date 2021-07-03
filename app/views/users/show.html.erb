@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <p>
-<strong> Name: </strong>
+<strong> Nome: </strong>
 <%= @user.name%>
 </p>
 
@@ -10,11 +10,11 @@
 </p>
 
 <p>
-  <strong> Role: </strong>
+  <strong> Função: </strong>
   <%= @user.role %>
 </p>
 
 <br>
-<%= link_to "New User", new_user_registration_path %> 
-<%= link_to 'Edit User', edit_user_registration_path(@user) %>
-<%= link_to 'back', root_path, class: "btn btn-default" %>
+<%= link_to "Novo usuário", new_user_registration_path %>
+<%= link_to 'Editar usuário', edit_user_registration_path(@user) %>
+<%= link_to 'Voltar', root_path, class: "btn btn-default" %>

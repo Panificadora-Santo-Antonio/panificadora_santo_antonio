@@ -25,14 +25,18 @@ class SalesController < ApplicationController
   def create
     @sale = Sale.new(sale_params)
 
-    respond_to do |format|
-      if @sale.save
-        format.html { redirect_to @sale, notice: "Sale was successfully created." }
-        format.json { render :show, status: :created, location: @sale }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @sale.errors, status: :unprocessable_entity }
+    if @sale.totalValue == 0
+      respond_to do |format|
+        if @sale.save
+          format.html { redirect_to @sale, notice: "Venda criada com sucesso." }
+          format.json { render :show, status: :created, location: @sale }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @sale.errors, status: :unprocessable_entity }
+        end
       end
+    else
+     redirect_to new_sale_path, notice: "Valor total deve ser iniciado com 0(zero)." 
     end
   end
 
@@ -56,19 +60,22 @@ class SalesController < ApplicationController
     end
     @sale.destroy
     respond_to do |format|
-      format.html { redirect_to sales_url, notice: "Sale was successfully destroyed." }
+      format.html { redirect_to sales_url, notice: "Venda apagada com sucesso." }
       format.json { head :no_content }
     end
   end
 
   def finalizeSale
     @sale = Sale.find(params[:id])
-
-    @sale.product_sale.each do |product_sale|
-      Produto.update(product_sale.produto_id, :quantidade => product_sale.produto.quantidade - product_sale[:quantity].to_d)
+    if @sale.totalValue != 0
+      @sale.product_sale.each do |product_sale|
+        Produto.update(product_sale.produto_id, :quantidade => product_sale.produto.quantidade - product_sale[:quantity].to_d)
+      end
+      @sale.update(:date_time => DateTime.current)
+      redirect_to root_path, notice: "Venda finalizada com sucesso."
+    else
+      redirect_to sale_path(@sale), notice: "Adicione ao menos um produto para concluir a venda." 
     end
-    @sale.update(:date_time => DateTime.current)
-    redirect_to root_path, notice: "Sale was successfully finalized."
   end
 
 

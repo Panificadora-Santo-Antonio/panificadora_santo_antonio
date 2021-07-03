@@ -6,7 +6,7 @@
     <%=user.id%>
     </p>
     <p>
-    <strong> Name: </strong>
+    <strong> Nome: </strong>
     <%=user.name%>
     </p>
     <p>
@@ -14,15 +14,15 @@
     <%=user.email%>
     </p>
     <p>
-    <strong> Role: </strong>
+    <strong> Função: </strong>
     <%=user.role%>
     </p>
 
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_registration_path(user) %></td>
-    <td><%= link_to 'Destroy', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Mostrar', user %></td>
+    <td><%= link_to 'Editar', edit_user_registration_path(user) %></td>
+    <td><%= link_to 'Apagar', user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </br>
   <% end %>
   </br> </br>
-  <%= link_to 'back', root_path, class: "btn btn-default" %>
+  <%= link_to 'Voltar', root_path, class: "btn btn-default" %>
 </ul>

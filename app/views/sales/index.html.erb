@@ -21,7 +21,6 @@
         <td><%= sale.totalValue %></td>
         <td><%= sale.date_time %></td>
         <td><%= link_to 'Mostrar', sale %></td>
-        <td><%= link_to 'Editar', edit_sale_path(sale) %></td>
         <td><%= link_to 'Apagar', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

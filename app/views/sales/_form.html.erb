@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <%= form_with(model: sale, local: true) do |form| %>
   <% if sale.errors.any? %>
     <div id="error_explanation">
@@ -12,11 +13,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :customer %>
+    <%= form.label :Cliente %>
     <%= form.select :customer_id, Customer.all.collect{|c| [c.name,c.id]} %>
   </div>
   <div class="field">
-    <%= form.label :total_Value %>
+    <%= form.label :Valor_Total %>
     <%= form.text_field :totalValue, value: "0" %>
   </div>
 
@@ -24,6 +25,6 @@
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit id:'submit', value:"Confirmar"%>
   </div>
 <% end %>

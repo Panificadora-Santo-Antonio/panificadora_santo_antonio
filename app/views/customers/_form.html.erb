@@ -12,50 +12,50 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label :Name %>
     <%= form.text_field :name, id: "name" %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
+    <%= form.label :Telefone %>
     <%= form.text_field :phone, id: "phone" %>
   </div>
 
-  Address:
+  Endereço:
   <%= form.fields_for :address do |form_address| %>
     <div class="field">
-    <%= form_address.label :zip_code %>
+    <%= form_address.label :CEP %>
     <%= form_address.number_field :zip_code, id: "zip_code" %>
   </div>
 
   <div class="field">
-    <%= form_address.label :city %>
+    <%= form_address.label :Cidade %>
     <%= form_address.text_field :city, id: "city" %>
   </div>
 
   <div class="field">
-    <%= form_address.label :district %>
+    <%= form_address.label :Bairro %>
     <%= form_address.text_field :district, id: "district" %>
   </div>
 
   <div class="field">
-    <%= form_address.label :road %>
+    <%= form_address.label :Logradouro %>
     <%= form_address.text_field :road, id: "road" %>
   </div>
 
   <div class="field">
-    <%= form_address.label :number %>
+    <%= form_address.label :Número %>
     <%= form_address.number_field :number, id: "number" %>
   </div>
 
   <div class="field">
-    <%= form_address.label :complement %>
+    <%= form_address.label :Complemento %>
     <%= form_address.text_field :complement, id: "complement" %>
   </div>
   <% end %>
   
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit id:"submit", value:"Confirmar"%>
   </div>
 <% end %>

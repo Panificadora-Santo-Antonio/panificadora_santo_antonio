@@ -4,11 +4,11 @@ class SearchController < ApplicationController
   def index
     @sales = Sale.all
     @sales = @sales.joins(:customer)
-    if params[:name].present?
+    if params[:name_or_phone].present?
       #@sales = @sales.where("customers.name like '%#{params[:name]}%'")
       name_like = Customer.arel_table['name']
       phone_like = Customer.arel_table['phone']
-      @sales = @sales.where(name_like.matches("%#{params[:name]}%")).or(@sales.where(phone_like.matches("%#{params[:name]}%")))
+       @sales = @sales.where(name_like.matches("%#{params[:name_or_phone]}%")).or(@sales.where(phone_like.matches("%#{params[:name_or_phone]}%")))
     end
 
     start = params[:start_date]
@@ -18,7 +18,6 @@ class SearchController < ApplicationController
     start = params[:value_of]
     final = params[:value_up_to]
     SaleSearchInARange 'totalValue',start,final
-
 
     if params[:user_id].present?
       @sales = @sales.where(user_id: params[:user_id])

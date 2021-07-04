@@ -30,33 +30,34 @@ class ProductSalesController < ApplicationController
   def edit
   end
 
-  # POST /product_sales or /product_sales.json
   def create
     @product_sale = @sale.product_sale.build(product_sale_params)
-    if @product_sale.produto.quantidade > 0
-      if !@product_sale.quantity.nil?
-        if (@product_sale.produto.quantidade - @product_sale.quantity) > 0
-          respond_to do |format|
-            if @product_sale.save
-              ProductSale.update(@product_sale.id, :total_product_price => @product_sale[:quantity].to_d * @product_sale.produto.preco.to_d )
-              Sale.update(@sale.id, :totalValue => @sale[:totalValue].to_d + (@product_sale[:quantity].to_d * @product_sale.produto.preco.to_d))
-              format.html { redirect_to @sale, notice: "Product sale was successfully created." }
-              format.json { render :show, status: :created, location: @product_sale }
-            else
-              format.html { render :new, status: :unprocessable_entity }
-              format.json { render json: @product_sale.errors, status: :unprocessable_entity }
-            end
-          end
-        else
-          redirect_to sale_path(@sale), notice: "Products quantity  exceeds the quantity in stock."
-        end
+
+     if @product_sale.produto.quantidade <= 0
+        return redirect_to sale_path(@sale), notice: "Produto em falta no estoque."
+     end
+
+     if @product_sale.quantity.nil?
+      return redirect_to sale_path(@sale), notice: "Quantidade do produto deve ser preenchida."
+     end
+  
+     if (@product_sale.produto.quantidade - @product_sale.quantity) < 0
+      return redirect_to sale_path(@sale), notice: "Quantidade do produto excede quantidade em estoque."
+     end
+
+    respond_to do |format|
+      if @product_sale.save
+        ProductSale.update(@product_sale.id, :total_product_price => @product_sale[:quantity].to_d * @product_sale.produto.preco.to_d )
+        Sale.update(@sale.id, :totalValue => @sale[:totalValue].to_d + (@product_sale[:quantity].to_d * @product_sale.produto.preco.to_d))
+        format.html { redirect_to @sale, notice: "Product sale was successfully created." }
+        format.json { render :show, status: :created, location: @product_sale }
       else
-       redirect_to sale_path(@sale), notice: "Quantity of products field must be filled."
-      end
-    else
-      redirect_to sale_path(@sale), notice: "Out of stock product."
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @product_sale.errors, status: :unprocessable_entity }
+      end    
     end
   end
+
 
   # PATCH/PUT /product_sales/1 or /product_sales/1.json
   def update

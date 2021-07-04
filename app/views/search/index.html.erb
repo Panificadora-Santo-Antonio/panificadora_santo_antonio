@@ -3,7 +3,7 @@
 <form action="/search" method="get" class="search">
   <div style="clear:both">
     <label>Nome ou telefone do cliente:</label>
-    <input type="text" class="form-control" name="name" value="<%params[:name] %>">
+    <input type="text" class="form-control" name="name_or_phone" value="<%params[:name_or_phone] %>">
 
     <label>Data inicial:</label>
     <input type="date" style="width: 180px" class="form-control" name="start_date" value="<%= params[:start_date] %>" onfocus="this.value='';">

@@ -13,7 +13,7 @@ When ('eu preencho o campo data de com {string}') do |data|
 end
 
 When ('eu vejo que a busca retornou {string} vendas') do |vendas|
-  expect(page).to have_content("Total Sales: " + vendas)
+  expect(page).to have_content("Quantidade de Vendas: " + vendas)
 end
 
 Given('eu clico no botao search') do

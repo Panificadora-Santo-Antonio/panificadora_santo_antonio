@@ -23,11 +23,11 @@ And('eu clico em criar o usuario') do
 end
 
 Then ('eu vejo uma mensagem de cadastro com sucesso') do
-  expect(page).to have_content("Welcome! You have signed up successfully.")
+  expect(page).to have_content("Customer was successfully created.")
 end
 
 And('eu estou na pagina de edicao de usuario de email {string}') do |email|
-  click_link 'Edit User'
+  click_link "EditUser"
 end
 
 When("eu edito um usuario com email {string} e a senha {string} e a confirmacao de senha {string} e o nome {string} e a role {string}") do |email, senha, confirmacao_senha, nome, role|

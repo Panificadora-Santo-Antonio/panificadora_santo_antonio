@@ -32,17 +32,17 @@ class ProductSalesController < ApplicationController
 
   def create
     @product_sale = @sale.product_sale.build(product_sale_params)
-    
+
      if @product_sale.produto.quantidade <= 0
-        return redirect_to sale_path(@sale), notice: "Out of stock product."
+        return redirect_to sale_path(@sale), notice: "Produto em falta no estoque."
      end
 
      if @product_sale.quantity.nil?
-      return redirect_to sale_path(@sale), notice: "Quantity of products field must be filled."
+      return redirect_to sale_path(@sale), notice: "Quantidade do produto deve ser preenchida."
      end
   
      if (@product_sale.produto.quantidade - @product_sale.quantity) < 0
-      return redirect_to sale_path(@sale), notice: "Products quantity  exceeds the quantity in stock."
+      return redirect_to sale_path(@sale), notice: "Quantidade do produto excede quantidade em estoque."
      end
 
     respond_to do |format|

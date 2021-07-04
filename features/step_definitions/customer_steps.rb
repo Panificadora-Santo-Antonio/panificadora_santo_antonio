@@ -14,7 +14,7 @@ When("eu crio um cliente com o name {string} e o phone {string} e o zip_code {st
 end
 
 And('eu clico em criar o cliente') do
-  click_button 'Create Customer'
+  click_button "submit"
  end
 
 Then ('eu vejo uma mensagem de cadastro de cliente com sucesso') do
@@ -42,7 +42,7 @@ When("eu edito um cliente com o name {string} e o phone {string} e o zip_code {s
 end
 
 And('eu clico em atualizar o cliente') do 
-  click_button 'Update Customer'
+  click_button "submit"
 end
 
 Then ('eu vejo uma mensagem que o cliente foi atualizado com sucesso') do

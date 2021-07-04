@@ -6,7 +6,7 @@
 <% else %>
   <%= link_to "Entrar", new_user_session_path %>
 <% end %>
-<p id="notice" <%= notice %></p>
+<p id="notice" ><%= notice %></p>
 
 <% if current_user %>
  <% if current_user.role == "Admin" %>

@@ -24,10 +24,10 @@
 
 
 
-<%= link_to 'Adicionar Produto', new_sale_product_sale_path(@sale) %>
+<%= link_to 'Adicionar Produto', new_sale_product_sale_path(@sale), id:"AddProduct" %>
 </br>
 </br>
-<%= link_to 'Finalizar Venda', finalizeSale_sale_path(@sale)%>
+<%= link_to 'Finalizar Venda', finalizeSale_sale_path(@sale), id:"FinalizeSale"%>
 </br>
 </br>
 <%= link_to 'Voltar', sales_path %>

@@ -11,9 +11,6 @@ class SearchController < ApplicationController
        @sales = @sales.where(name_like.matches("%#{params[:name_or_phone]}%")).or(@sales.where(phone_like.matches("%#{params[:name_or_phone]}%")))
     end
 
-
-
-
     start = params[:start_date]
     final = params[:final_date]
     SaleSearchInARange 'created_at',start,final
@@ -22,10 +19,9 @@ class SearchController < ApplicationController
     final = params[:value_up_to]
     SaleSearchInARange 'totalValue',start,final
 
-
-    #if params[:user_id].present?
-    #@sales = @sales.where(user_id: params[:user_id])
-    # end
+    if params[:user_id].present?
+      @sales = @sales.where(user_id: params[:user_id])
+    end
 
     @sales_total = @sales
     options = {page: params[:page] || 1, per_page: 5}

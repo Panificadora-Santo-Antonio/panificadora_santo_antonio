@@ -7,7 +7,7 @@ Then ('eu vejo uma mensagem de erro no tamanho do cep') do
 end
 
 Then ('eu vejo uma mensagem que o numero de caracters do bairro esta incorreto') do
-  expect(page).to have_content("Address district 3 characters is the minimum allowed ")
+  expect(page).to have_content("Address district 3 caracteres é o mínimo permitido")
 end
 
 Then ('eu vejo uma mensagem de erro que cidade nao deve ser vazio') do

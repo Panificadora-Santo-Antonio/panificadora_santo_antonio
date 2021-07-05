@@ -49,7 +49,7 @@ class ProductSalesController < ApplicationController
       if @product_sale.save
         ProductSale.update(@product_sale.id, :total_product_price => @product_sale[:quantity].to_d * @product_sale.produto.preco.to_d )
         Sale.update(@sale.id, :totalValue => @sale[:totalValue].to_d + (@product_sale[:quantity].to_d * @product_sale.produto.preco.to_d))
-        format.html { redirect_to @sale, notice: "Product sale was successfully created." }
+        format.html { redirect_to @sale, notice: "Produto criado com sucesso" }
         format.json { render :show, status: :created, location: @product_sale }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -63,7 +63,7 @@ class ProductSalesController < ApplicationController
   def update
     respond_to do |format|
       if @product_sale.update(product_sale_params)
-        format.html { redirect_to @product_sale, notice: "Product sale was successfully updated." }
+        format.html { redirect_to @product_sale, notice: "Produto atualizado com sucesso" }
         format.json { render :show, status: :ok, location: @product_sale }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -76,7 +76,7 @@ class ProductSalesController < ApplicationController
   def destroy
     @product_sale.destroy
     respond_to do |format|
-      format.html { redirect_to sale_path(@sale), notice: "Product sale was successfully destroyed." }
+      format.html { redirect_to sale_path(@sale), notice: "Produto apagado com sucesso" }
       format.json { head :no_content }
     end
     Sale.update(@sale.id, :totalValue => @sale[:totalValue].to_d - (@product_sale[:quantity].to_d * @product_sale.produto.preco.to_d))

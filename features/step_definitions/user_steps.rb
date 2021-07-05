@@ -46,7 +46,7 @@ Then ('eu vejo uma mensagem de erro') do
   expect(page).to have_content("Name can't be blank")
 end
 Then ('eu vejo uma mensagem de erro de minimo caracter alocado') do
-  expect(page).to have_content("Name 3 characters is the minimum allowed")
+  expect(page).to have_content("Name 3 caracteres é o mínimo permitido")
 end
 Then ('eu vejo uma mensagem de erro de senha nao pode ser vazia') do
   expect(page).to have_content("Password can't be blank")

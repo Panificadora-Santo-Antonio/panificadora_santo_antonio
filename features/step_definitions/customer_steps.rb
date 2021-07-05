@@ -18,13 +18,13 @@ And('eu clico em criar o cliente') do
  end
 
 Then ('eu vejo uma mensagem de cadastro de cliente com sucesso') do
-  expect(page).to have_content("Customer was successfully created.")
+  expect(page).to have_content("Cliente criado com sucesso")
 end
 Then ('eu vejo uma mensagem de erro que nome nao pode ser vazio') do
   expect(page).to have_content("Name can't be blank")
 end
 Then ('eu vejo uma mensagem de erro que nome tem que ter 3 caracters minimos') do
-  expect(page).to have_content("Name 3 characters is the minimum allowed")
+  expect(page).to have_content("Name 3 caracteres é o mínimo permitido")
 end
 And('eu estou na pagina de edicao de cliente') do
   click_link 'Edit'
@@ -46,7 +46,7 @@ And('eu clico em atualizar o cliente') do
 end
 
 Then ('eu vejo uma mensagem que o cliente foi atualizado com sucesso') do
-  expect(page).to have_content("Customer was successfully updated.")
+  expect(page).to have_content("Cliente atualizado com sucesso")
 end
 
 Then ('eu vejo uma mensagem que o telefone nao pode ser vazio') do

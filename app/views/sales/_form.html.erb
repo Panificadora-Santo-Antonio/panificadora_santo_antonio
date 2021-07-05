@@ -15,6 +15,7 @@
   <div class="field">
     <%= form.label :Cliente %>
     <%= form.select :customer_id, Customer.all.collect{|c| [c.name,c.id]} %>
+    <%= link_to 'Novo Cliente',new_customer_path%>
   </div>
   <div class="field">
     <%= form.label :Valor_Total %>

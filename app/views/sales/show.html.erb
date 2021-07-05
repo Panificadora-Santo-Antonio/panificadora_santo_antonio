@@ -4,15 +4,29 @@
   <%= @sale.customer.name %>
 </p>
 
-<div class="row">
+<div class="table-responsive"></div>
+ <table class="table table-striped table-bordered table-hover">
+ <thead>
+      <tr>
+        <th>Produto</th>
+        <th>Quantidade</th>
+        <th>Valor</th>
+      </tr>
+    </thead>
+  <tbody>
     <% for product_sale in @sale.product_sale %>
-                    Produto: <%=  product_sale.produto.nome %>
-                   | Quantidade: <%= product_sale.quantity %>
-                   | Valor: <%= "R$ %0.02f" % product_sale.total_product_price %>
-            | <%= link_to 'Remover Produto',[@sale, product_sale], method: :delete, data: { confirm: 'Deseja remover este produto da venda?' } %>
-            </br>
+    <tr>
+        <td><%=  product_sale.produto.nome %></td>
+        <td><%= product_sale.quantity %></td>
+        <td><%= "R$ %0.02f" % product_sale.total_product_price %></td>
+        <td><%= link_to 'Remover Produto',[@sale, product_sale], method: :delete, data: { confirm: 'Deseja remover este produto da venda?' } %></td>
+      </br>
+    </tr>
     <% end %>
+  </tbody>
+</table>
 </div>
+
 
 <p>
   <strong>Valor Total:</strong>

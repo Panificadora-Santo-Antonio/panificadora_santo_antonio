@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_27_132742) do
+ActiveRecord::Schema.define(version: 2021_07_02_011249) do
 
   create_table "addresses", force: :cascade do |t|
     t.integer "zip_code"
@@ -59,7 +59,9 @@ ActiveRecord::Schema.define(version: 2021_06_27_132742) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "customer_id", null: false
+    t.integer "user_id", null: false
     t.index ["customer_id"], name: "index_sales_on_customer_id"
+    t.index ["user_id"], name: "index_sales_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_06_27_132742) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.string "role"
-    t.index ["email"], name: "index_users_on_email"
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -80,4 +82,5 @@ ActiveRecord::Schema.define(version: 2021_06_27_132742) do
   add_foreign_key "product_sales", "produtos"
   add_foreign_key "product_sales", "sales"
   add_foreign_key "sales", "customers"
+  add_foreign_key "sales", "users"
 end

@@ -32,7 +32,7 @@ When ('eu preencho o campo nome com {string}, preco com {string}, quantidade com
 end
 
 Then ('eu vejo uma mensagem que o produto foi criado com sucesso') do
-    expect(page).to have_content("Produto was successfully created")
+    expect(page).to have_content("Produto criado com sucesso")
 end
 
 When('eu vou para a pagina de edicao do produto criado anteriormente') do
@@ -48,7 +48,7 @@ When('clico no botao update produto')do
 end
 
 Then('eu vejo uma mensagem que o produto foi atualizado com sucesso')do
-    expect(page).to have_content("Produto was successfully updated")
+    expect(page).to have_content("Produto atualizado com sucesso)
 end
 
 

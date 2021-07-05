@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def check_role
     if current_user.role == "Seller"
-      redirect_to root_path
+        redirect_to root_path, notice: "Você não tem atorização para fazer essa ação"
     end
   end
 

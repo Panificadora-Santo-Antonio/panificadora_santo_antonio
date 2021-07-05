@@ -48,7 +48,7 @@ When('clico no botao update produto')do
 end
 
 Then('eu vejo uma mensagem que o produto foi atualizado com sucesso')do
-    expect(page).to have_content("Produto atualizado com sucesso)
+    expect(page).to have_content("Produto atualizado com sucesso")
 end
 
 

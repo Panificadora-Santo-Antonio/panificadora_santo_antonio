@@ -1,4 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
+  before_action :check_role, only: %i[ new index destroy]
   skip_before_action :require_no_authentication, only: [:new, :create]
 
   def new
@@ -10,7 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: "Customer was successfully created." }
+        format.html { redirect_to @user, notice: "Usuário foi criado com sucesso." }
         format.json { render :show, status: :created, location: @user }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -31,7 +32,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
+        format.html { redirect_to @user, notice: "Usuário foi atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }

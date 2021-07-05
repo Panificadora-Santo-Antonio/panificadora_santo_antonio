@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :check_role, only: %i[ index ]
+  before_action :check_role, only: %i[ index destroy ]
 
   def show
     @user = User.find(params[:id])

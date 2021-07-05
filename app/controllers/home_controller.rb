@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       create_admin
     else
       if @admin.role != "Admin"
-        update_admin(@admin)
+        update_role_admin(@admin)
       end
     end
   end
@@ -24,7 +24,7 @@ class HomeController < ApplicationController
     admin.save()
   end
 
-  def update_admin(admin)
+  def update_role_admin(admin)
     admin.update(role: "Admin")
   end
 end

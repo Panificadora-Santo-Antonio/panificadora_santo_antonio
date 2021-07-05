@@ -23,7 +23,7 @@ And('eu clico em criar o usuario') do
 end
 
 Then ('eu vejo uma mensagem de cadastro com sucesso') do
-  expect(page).to have_content("Customer was successfully created.")
+  expect(page).to have_content("Usuário foi criado com sucesso.")
 end
 
 And('eu estou na pagina de edicao de usuario de email {string}') do |email|
@@ -40,7 +40,7 @@ And('eu clico em atualizar o usuario') do
   click_button 'Update'
 end
 Then ('eu vejo uma mensagem que o usuario foi atualizado com sucesso') do
-  expect(page).to have_content("User was successfully updated.")
+  expect(page).to have_content("Usuário foi atualizado com sucesso.")
 end
 Then ('eu vejo uma mensagem de erro') do
   expect(page).to have_content("Name can't be blank")

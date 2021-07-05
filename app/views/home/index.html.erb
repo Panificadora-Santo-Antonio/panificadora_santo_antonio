@@ -2,63 +2,63 @@
 <% if current_user %>
   Bem Vindo(a) <%= current_user.name %> | Função: <%= current_user.role %>
   </br>
-  <%= link_to "Sair", destroy_user_session_path, method: :delete %>
+  <%= link_to "Sair", destroy_user_session_path, method: :delete, class: "btn btn-default" %>
 <% else %>
-  <%= link_to "Entrar", new_user_session_path %>
+  <%= link_to "Entrar", new_user_session_path, class: "btn btn-default" %>
 <% end %>
 <p id="notice" ><%= notice %></p>
 
 <% if current_user %>
  <% if current_user.role == "Admin" %>
     <h5> Vendas</h5>
-    <%= link_to 'Nova Venda', new_sale_path %>
+    <%= link_to 'Nova Venda', new_sale_path, class: "btn btn-default" %>
     </br>
-    <%= link_to 'Lista de Vendas', sales_path %>
+    <%= link_to 'Lista de Vendas', sales_path, class: "btn btn-default"  %>
     </br>
     <h5> Produtos </h5>
-    <%= link_to 'Novo Produto', new_produto_path %>
+    <%= link_to 'Novo Produto', new_produto_path, class: "btn btn-default"  %>
     </br>
-    <%= link_to 'Lista de Produtos', produtos_path %>
+    <%= link_to 'Lista de Produtos', produtos_path, class: "btn btn-default" %>
     </br>
     <h5> Clientes </h5>
-    <%= link_to 'Novo Cliente', new_customer_path %> 
+    <%= link_to 'Novo Cliente', new_customer_path, class: "btn btn-default"  %> 
     </br>
-    <%= link_to 'Lista de Clientes', customers_path %>
+    <%= link_to 'Lista de Clientes', customers_path, class: "btn btn-default"  %>
     <br>
     <h5> Busca em Venda </h5>
-    <%= link_to 'Busca', search_index_path %>
+    <%= link_to 'Busca', search_index_path, class: "btn btn-default"  %>
 
 
     </br>
     <h5> Usuários </h5>
-    <%= link_to "Novo Usuário", new_user_registration_path %> 
+    <%= link_to "Novo Usuário", new_user_registration_path, class: "btn btn-default"  %> 
     </br>
-    <%= link_to 'Mostrar Usuário Atual', user_path(current_user) %>
+    <%= link_to 'Mostrar Usuário Atual', user_path(current_user), class: "btn btn-default"  %>
     </br>
-    <%= link_to 'Lista de Usuários', users_path %>
+    <%= link_to 'Lista de Usuários', users_path, class: "btn btn-default"  %>
     </br>
-    <%= link_to 'Editar Usuário Atual', edit_user_registration_path(current_user) %>
+    <%= link_to 'Editar Usuário Atual', edit_user_registration_path(current_user), class: "btn btn-default" %>
     </br>
     <%= button_to "Cancelar minha conta", registration_path(current_user), data: { confirm: "Você tem certeza?" }, method: :delete %></p>
     </br>
 
   <% else %>
      <h5> Vendas</h5>
-    <%= link_to 'Nova Venda', new_sale_path %>
+    <%= link_to 'Nova Venda', new_sale_path, class: "btn btn-default" %>
     </br>
     <h5> Produtos</h5>
-    <%= link_to 'Novo Produto', new_produto_path %>
+    <%= link_to 'Novo Produto', new_produto_path, class: "btn btn-default" %>
     </br>
-    <%= link_to 'Lista de Produtos', produtos_path %>
+    <%= link_to 'Lista de Produtos', produtos_path, class: "btn btn-default" %>
     </br>
     <h5> Clientes </h5>
-    <%= link_to 'Novo Cliente', new_customer_path %>
+    <%= link_to 'Novo Cliente', new_customer_path, class: "btn btn-default" %>
     </br>
     
     <h5> Usuario </h5>
-    <%= link_to 'Mostrar Usuário Atual', user_path(current_user) %>
+    <%= link_to 'Mostrar Usuário Atual', user_path(current_user), class: "btn btn-default" %>
     </br>
-    <%= link_to 'Editar Usuário Atual', edit_user_registration_path(current_user) %>
+    <%= link_to 'Editar Usuário Atual', edit_user_registration_path(current_user), class: "btn btn-default" %>
     </br>
 
   <% end %>

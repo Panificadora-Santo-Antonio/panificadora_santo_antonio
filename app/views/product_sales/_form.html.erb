@@ -14,6 +14,7 @@
 <div class="field">
     <%= form.label :produto_id %>
     <%= form.select :produto_id, @products, {include: true}%>
+    <%= link_to 'Novo Produto', new_produto_path %>
   </div>
 
 

@@ -2,7 +2,7 @@ Given ('eu estou na pagina de busca') do
   visit '/search'
 end
 When ('eu preencho o campo nome ou telefone com {string}') do |nome|
-  fill_in 'name', :with => nome
+  fill_in 'name_or_phone', :with => nome
 end
 When ('eu preencho o campo com valor {string}') do |valor|
   fill_in 'value_of',:with => valor
